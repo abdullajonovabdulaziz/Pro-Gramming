@@ -1,0 +1,163 @@
+{% load static %}
+
+<style>
+    .container {
+        width: 1140px;
+        padding: 0;
+        margin-left: 100px
+    }
+
+    .reg-item__image {
+        text-align: center;
+    }
+
+    .image {
+        width: 65%;
+    }
+
+    .reg-item {
+        position: relative;
+        bottom: 550px;
+        left: 115px;
+        display: inline-block;
+        padding: 10px;
+        height: 430px;
+        margin: 100px;
+        margin-top: 140px;
+        border-radius: 20px;
+    }
+
+    .input {
+        padding: 2px;
+        display: block;
+        width: 390px;
+        margin: 20px;
+        font-size: 27px;
+        border: solid orangered 3px;
+        border-radius: 10px;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    .input:hover {
+        transition-duration: 0.5s;
+        display: block;
+        font-size: 27px;
+        border-radius: 10px;
+        border: solid orange 3px;
+    }
+
+    /* ============================= */
+    .submit,
+    .login-button {
+        cursor: pointer;
+        border: 5px;
+        width: 185px;
+        font-family: sans-serif;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        padding: 5px;
+    }
+
+    .submit:hover,
+    .login-button:hover {
+        transition-duration: 0.3s;
+        box-shadow: 0 0 10px black;
+        cursor: pointer;
+        border: 5px;
+        width: 185px;
+        font-family: sans-serif;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        padding: 5px;
+    }
+
+    .login-button:hover {
+        background-color: aliceblue;
+        color: orangered;
+    }
+
+    .login-link {
+        text-decoration: none;
+    }
+
+    .submit {
+        position: relative;
+        top: 10px;
+        margin-left: 15px;
+    }
+
+    .login-button {
+        position: relative;
+        top: 10px;
+        color: orangered;
+        background-color: aliceblue;
+        position: relative;
+        bottom: 40px;
+    }
+
+    .i {
+        border-bottom-left-radius: 15px;
+        width: 150px;
+        height: 45px;
+        position: relative;
+        left: 2px;
+        bottom: 10px;
+        background-color: black;
+        border: solid 5px black;
+        color: white;
+        font-family: sans-serif;
+        font-size: 25px;
+    }
+
+    .a {
+        border-bottom-right-radius: 15px;
+        width: 150px;
+        height: 45px;
+        right: 2px;
+        position: relative;
+        bottom: 10px;
+        background-color: black;
+        border: solid 5px black;
+        color: white;
+        font-family: sans-serif;
+        font-size: 25px;
+    }
+</style>
+
+<div class="container">
+    <div style="text-align: center;">
+        <a href="{% url 'course_app:home' %}">
+            <button class="i">Home</button>
+        </a>
+        <a href="{% url 'users:sign_or_log' %}">
+            <button class="a">Sign</button>
+        </a>
+    </div>
+    <div class="reg-item__image">
+        <img class="image" src="{% static 'images/fon2.png' %}" alt="">
+    </div>
+    <form action="" method="post" style="height: 60%">
+        <div class="reg">
+            <div class="reg-item">
+                {% csrf_token %}
+                {{ log.username }}
+                {{ log.password }}
+                <div class="reg-item__log" style="margin-left: 20px;position: relative;bottom: 10px;">
+                    <a href="{% url 'users:signup' %}" type="button" class="login-link">
+                        <button class="login-button">Log In</button>
+                    </a>
+                    <button type="submit" class="submit">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

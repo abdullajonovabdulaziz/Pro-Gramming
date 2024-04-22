@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-center m-5 title" style="color: white;">{{ card }}</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 overflow-auto" style="height: 97vh;">
+            <!---- Themes ------------------------------------>
+            <div class="accordion" id="accordionExample">
+                {% for m in card.mavzular.all %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#{{ m.title }}" aria-expanded="true" aria-controls="{{ m.title }}">
+                            <h4>{{ m.title }}</h4>
+                        </button>
+                    </h2>
+                    <div id="{{ m.title }}" class="accordion-collapse collapse" data-bs-parent="#{{ m.title }}">
+                        <div class="accordion-body">
+                            {% for v in m.videolar.all %}
+                            <button onclick="changeVideo('{{ v.title }}', '{{ v.video.url }}', '{{ v.image.url }}')"
+                                class="btn btn-outline-warning" style="font-size: 20px;">
+                                {{ v.title }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Video --------------------------------------->
+        </div>
+        <div class="col-9" style="height: 95vh;">
+            <div style="height: 110vh;">
+                <video style="width: 100%;border-radius: 7px;" poster="" controls loop id="video_url" src=""></video>
+                <h2 id="video_title"
+                    style="padding: 7px; text-align: center; margin: 10px;background-color: white;color: black;border-radius: 5px;">
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeVideo(t, v, r) {
+        var video = document.getElementById("video_url");
+        var title = document.getElementById("video_title");
+
+        video.src = v;
+        title.innerHTML = t;
+        video.poster = r;
+    }
+</script>
+
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% load static %}
+
+<style>
+    .container {
+        width: 1140px;
+        padding: 0;
+        margin-left: 100px
+    }
+
+    .reg-item__image {
+        text-align: center;
+    }
+
+    .image {
+        width: 65%;
+    }
+
+    .submit,
+    .login-button {
+        margin: 5px;
+        cursor: pointer;
+        border: 5px;
+        width: 300px;
+        float: left;
+        font-family: sans-serif;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        padding: 5px;
+    }
+
+    .submit:hover,
+    .login-button:hover {
+        transition-duration: 0.3s;
+        box-shadow: 0 0 10px black;
+        cursor: pointer;
+        border: 5px;
+        width: 300px;
+        font-family: sans-serif;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        padding: 5px;
+    }
+
+    .login-button {
+        background-color: aliceblue;
+        color: orangered;
+    }
+
+    .login-button:hover {
+        background-color: white;
+        color: orangered;
+    }
+
+    .item {
+        position: relative;
+        bottom: 350px;
+        right: 415px;
+        width: 200px;
+        height: 100px;
+        background-color: rgba(185, 180, 180, 0);
+    }
+
+    .i {
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        width: 300px;
+        height: 45px;
+        position: relative;
+        bottom: 10px;
+        background-color: black;
+        border: solid 5px black;
+        color: white;
+        font-family: sans-serif;
+        font-size: 25px;
+    }
+</style>
+<div class="container">
+    <div style="text-align: center;">
+        <a href="{% url 'course_app:home' %}">
+            <button class="i">Home</button>
+        </a>
+    </div>
+    <div class="reg-item__image">
+        <img class="image" src="{% static 'images/fon2.png' %}" alt="">
+    </div>
+    <div style="margin-left: 700px;float: left;">
+        <div class="item">
+            <a href="signup/">
+                <button class="submit">Sign Up</button>
+            </a>
+            <a href="login/">
+                <button class="login-button">Log In</button>
+            </a>
+        </div>
+    </div>
+</div>

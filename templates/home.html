@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+        {% for i in cards %}
+        <div class="col-3 mb-3 d-flex justify-content-center">
+            <div class="gallery" style="width: 18rem;">
+                <div class="content" style="width: 370px;height: 370px;">
+                    <img style="width: 150px;height: 150px;border-radius: 10px;" src="{{ i.image.url }}" alt="">
+                    <div style="border-radius: 10px;background-color: rgb(235, 231, 231); margin: 10px;padding: 10px;">
+                        <h1 class="nommm">{{ i.title }}</h1>
+                        <div class="overflow-auto" style="height: 30px;">
+                            <p style="color: black;">{{ i.subtitle }}</p>
+                        </div>
+                    </div>
+                    <a href="{% url 'course_app:lesson' i.title %}">
+                        <button class="watch">Watch</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}  
